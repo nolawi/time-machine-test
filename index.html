@@ -25,7 +25,7 @@
     </div>
 
     <script type="text/template" id="template">
-   <p><%- TodaysTime.time %> <%- TodaysTime.milliseconds_since_epoch %></p > <% date %> 
+   <p><%- TodaysTime.attributes.time %> <%- TodaysTime.attributes.milliseconds_since_epoch %></p > <% date %> 
     </script>
 
     <script src="./assets/js/vendor/jquery.js"></script>
@@ -58,19 +58,19 @@
           template: "#template",
           model: TodaysTime,
 
+   		
+
           onRender: function() {
-              //console.log('rendered')
+        
               TodaysTime.fetch({
                   success: function(apiTime) {
                       console.log(apiTime.attributes.time);
                   }
-         
-
-              })},
+              })
 
 
-
-            });
+            }
+        });
           
 
 
@@ -83,7 +83,6 @@
       var timeView = new TimeView({
 
       });
-
     TodaysTime.fetch().done(function(){Time.mainRegion.show(timeView);});
 
 
